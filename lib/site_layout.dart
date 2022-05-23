@@ -2,19 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web_test/src/helpers/responsiveness.dart';
 import 'package:flutter_web_test/src/widgets/large_screen.dart';
 import 'package:flutter_web_test/src/widgets/small_screen.dart';
+import 'package:flutter_web_test/src/widgets/top_nav_bar.dart';
 
 class SiteLayout extends StatelessWidget {
-  const SiteLayout({ Key? key }) : super(key: key);
+
+  final GlobalKey<ScaffoldState> globalKey = GlobalKey();
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.white,
-        title: const Text('<< Flutter Web Panel >>' , style: TextStyle(color: Colors.black),),
-        centerTitle: true,
-      ),
+      appBar: topNavigationAppBar(context, globalKey), 
       body: ResponsiveWidget(largeScreen: LargeScreen(),smallScreen: SmallScreen(),),
     );
   }
