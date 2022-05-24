@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 class HorizontalMenuItem extends StatelessWidget {
   final String? itemName;
-  final Function? onTap;
+  final VoidCallback? onTap;
 
   const HorizontalMenuItem({Key? key, this.itemName, this.onTap})
       : super(key: key);
