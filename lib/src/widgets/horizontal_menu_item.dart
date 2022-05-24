@@ -43,7 +43,7 @@ class HorizontalMenuItem extends StatelessWidget {
                   width: _width / 88,
                 ),
 
-                Padding(padding: EdgeInsets.all(16.0) , child: menuController.returnIconFor(itemName!),),
+                Padding(padding: const EdgeInsets.all(16.0) , child: menuController.returnIconFor(itemName!),),
 
                 if(!menuController.isActive(itemName!))
                   Flexible(child: CustomText(text: itemName,color: menuController.isHovering(itemName!) ? dark : lightGrey,))
