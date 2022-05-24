@@ -4,7 +4,7 @@ const ClientPageRoute = 'Clients';
 const AuthenticationPageRoute = 'Authentication';
 
 
-List SideMenuItems = [
+List side_menu_items = [
   OverViewPageRoute,
   DriversPageRoute,
   ClientPageRoute,
