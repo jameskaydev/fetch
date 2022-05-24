@@ -13,52 +13,70 @@ class SideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     double _width = MediaQuery.of(context).size.width;
 
     return Container(
       color: light,
       child: ListView(
         children: [
-          if(ResponsiveWidget.isSmallScreen(context))
+          if (ResponsiveWidget.isSmallScreen(context))
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const SizedBox(height: 40.0,),
+                const SizedBox(
+                  height: 40.0,
+                ),
                 Row(
                   children: [
                     SizedBox(
                       width: _width / 48,
                     ),
-                    Padding(padding: EdgeInsets.only(right: 12.0), child: Image.asset('assets/icons/logo.png'),),
-
-                    Flexible(child: CustomText(text: 'Dash', size: 20.0,fontWeight: FontWeight.bold,color: active,)),
-
-                    SizedBox(width: _width / 48,),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 12.0),
+                      child: Image.asset('assets/icons/logo.png'),
+                    ),
+                    Flexible(
+                        child: CustomText(
+                      text: 'Dash',
+                      size: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: active,
+                    )),
+                    SizedBox(
+                      width: _width / 48,
+                    ),
                   ],
                 ),
-                const SizedBox(height: 30.0,),
+                const SizedBox(
+                  height: 30.0,
+                ),
               ],
             ),
-          Divider(color: lightGrey.withOpacity(.1),),
-
+          Divider(
+            color: lightGrey.withOpacity(.1),
+          ),
           Column(
             mainAxisSize: MainAxisSize.min,
-            children: side_menu_items.map((itemName)=> SideMenuItem(
-              itemName: itemName == AuthenticationPageRoute ? 'Log Out' : itemName ,
-              onTap: (){
-                if(itemName == AuthenticationPageRoute){
-                  //TODO: go to authentication page
-                }
+            children: side_menu_items
+                .map((itemName) => SideMenuItem(
+                      itemName: itemName == AuthenticationPageRoute
+                          ? 'Log Out'
+                          : itemName,
+                      onTap: () {
+                        if (itemName == AuthenticationPageRoute) {
+                          //TODO: go to authentication page
+                        }
 
-                if(!menuController.isActive(itemName)){
-                  menuController.changeActiveItemTo(itemName);
-                  if(ResponsiveWidget.isSmallScreen(context))
-                    Get.back();
-                  //TODO: go to item name Route
-                }
-              },
-            )).toList(),)
+                        if (!menuController.isActive(itemName)) {
+                          menuController.changeActiveItemTo(itemName);
+                          if (ResponsiveWidget.isSmallScreen(context))
+                            Get.back();
+                          //TODO: go to item name Route
+                        }
+                      },
+                    ))
+                .toList(),
+          )
         ],
       ),
     );
