@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_test/site_layout.dart';
+import 'package:flutter_web_test/src/controllers/menu_controller.dart';
+import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
+  Get.put(MenuController()); //Add this After Define Controllers
   runApp(const MyApp());
 }
 
